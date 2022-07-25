@@ -1,0 +1,7 @@
+{
+    "secret": "leidy-decret-access-token",
+    "refreshTokenSecret": "leidy-decret-refresh-access-token",
+    "port": 3000,
+    "tokenLife": 900,
+    "refreshTokenLife": 86400
+}

@@ -4,6 +4,7 @@ import personaRoutes from './routes/persona.routes'
 import alumnoRoutes from './routes/alumno.routes'
 import tutorRoutes from './routes/tutor.routes'
 import cursoRoutes from './routes/curso.routes'
+import auth from './routes/auth.routes.js'
 
 const app = express();
 var cors = require('cors');
@@ -20,4 +21,6 @@ app.use('/api/auth/persona', personaRoutes)
 app.use('/api/auth/alumno', alumnoRoutes)
 app.use('/api/auth/tutor', tutorRoutes)
 app.use('/api/auth/curso', cursoRoutes)
+app.use('/api/auth', auth)
+
 export default app;

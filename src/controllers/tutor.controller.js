@@ -8,6 +8,17 @@ export const getTutor = async (req,res)=>{
         return res.status(500).json('Error al listar tutores')
     }
 };
+
+export const getTutorapellidos = async (req,res)=>{
+    try {
+        const response = await pool.query('select t.idtutor idtutor, p.apellidos apellidos from tutores t join personas p on t.idpersona = p.idpersona;');
+        return res.status(200).json(response.rows);
+    } catch (error) {
+        return res.status(500).json('Error al listar tutores')
+    }
+};
+
+
 export const postTutor = async (req, res) =>{
     try {
         const {especialidad, idpersona, estado} = req.body;
