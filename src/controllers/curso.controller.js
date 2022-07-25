@@ -11,7 +11,7 @@ export const getCurso = async (req,res)=>{
 export const postCurso = async (req, res) =>{
     try {
         const {idtutor, idalumno, nombre, meses, fecha_inicio, fecha_fin, estado} = req.body;
-        await pool.query('INSERT INTO cursos (idtutor, idalumno, nombre, meses, fecha_inicio, fecha_fin, estado) VALUES ($1,$2,$3,$4,$5,$6,$7);',[idtutor, idalumno, nombre, meses, fecha_inicio, fecha_fin, estado]);
+        await pool.query('INSERT INTO cursos (idtutor, nombre, meses, fecha_inicio, fecha_fin) VALUES ($1,$2,$3,$4,$5);',[idtutor, nombre, meses, fecha_inicio, fecha_fin]);
         return res.status(200).json({
             message: 'Curso registrado correctamente'
         });
@@ -22,8 +22,8 @@ export const postCurso = async (req, res) =>{
 export const updateCurso = async (req, res) =>{
     try {
         const id =parseInt(req.params.id);
-        const {idtutor, idalumno, nombre, meses, fecha_inicio, fecha_fin, estado} = req.body;
-        await pool.query('update cursos set idtutor=$1, idalumno =$2, nombre=$3, meses =$4, fecha_inicio =$5, fecha_fin =$6, estado =$7 where idpersona =$8',[idtutor, idalumno, nombre, meses, fecha_inicio, fecha_fin, estado,id]);
+        const {idtutor, nombre, meses, fecha_inicio, fecha_fin, estado} = req.body;
+        await pool.query('update cursos set idtutor=$1, nombre=$2, meses =$3, fecha_inicio =$4, fecha_fin =$5, estado =$6 where idpersona =$7',[idtutor, nombre, meses, fecha_inicio, fecha_fin, estado,id]);
         return res.status(200).json({
             message: 'Curso modificado correctamente'
         });
